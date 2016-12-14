@@ -15,7 +15,7 @@ class Fileserver
 
     public function getFileUrlForStorageAndPathInStorage($storage_id, $path_in_storage)
     {
-        Assert::assert(array_key_exists($storage_id, $this->storages_map_arr));
+        Assert::assert(array_key_exists($storage_id, $this->storages_map_arr), 'Storage "' . $storage_id . '" not defined');
         return Url::buildUrl([$this->base_url, $this->storages_map_arr[$storage_id], $path_in_storage]);
     }
 }
